@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Eliminar Artículo</title>
+</head>
+<body>
+  <h1>Eliminar Artículo</h1>
+  <p>¿Estás seguro de que deseas eliminar el siguiente artículo?</p>
+  <p>Título: <%= articulo.titulo %></p>
+  <p>Descripción: <%= articulo.descripcion %></p>
+  <!-- Mostrar otros detalles del artículo que desees -->
+
+  <form method="POST" action="/posts_remove/<%= articulo._id %>">
+    <button type="submit">Sí, Eliminar</button>
+  </form>
+  <a href="/posts_listar">Cancelar</a>
+</body>
+</html>

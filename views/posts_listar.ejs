@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .custom-table {
+      border-collapse: collapse;
+      width: 95%;
+      margin: 0 auto; 
+    }
+
+    .custom-table th, .custom-table td {
+      border: 2px solid black;
+      padding: 8px;
+      text-align: center;
+    }
+
+    .custom-table th {
+      background-color: rgb(38, 38, 75);
+      color: white;
+    }
+
+    .custom-table tr:nth-child(odd) {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .custom-table .acciones {
+      padding: 4px; 
+    }
+
+    .custom-table .id {
+      padding: 4px; 
+    }
+  </style>
+</head>
+<body>
+  <h1 style="color: rgb(17, 16, 16); padding: 10px; text-align: center;">Lista de Artículos Tecnológicos</h1>
+
+  <a href="/posts_create/" class="btn btn-primary" style="position: fixed; top: 20px; right: 80px;">Agregar </a>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th class="id">ID</th>
+        <th>Título</th>
+        <th>Descripción</th>
+        <th>Categoría</th>
+        <th>Fecha</th>
+        <th>Comentarios</th>
+        <th class="acciones">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (arrayArticulos.length > 0) { %>
+        <% arrayArticulos.forEach(articulo => { %>
+          <tr>
+            <td class="id"><%= articulo._id %></td>
+            <td><%= articulo.titulo %></td>
+            <td><%= articulo.descripcion %></td>
+            <td><%= articulo.categoria %></td>
+            <td><%= articulo.fecha %></td>
+            <td>
+              <a href="/comment_listar/<%= articulo._id %>" class="btn btn-primary">Ver</a>
+            </td>
+            
+            <td class="acciones">
+              <a href="/posts_update/<%= articulo._id %>" class="btn btn-success">Editar</a>
+              <a href="/posts_remove/<%= articulo._id %>" class="btn btn-danger ml-2 mt-2">Eliminar</a>
+            </td>
+            
+          </tr>
+        <% }); %>
+      <% } %>
+    </tbody>
+  </table>
+</body>
+</html>

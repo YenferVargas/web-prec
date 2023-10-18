@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .custom-table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 20px 0; /* Agregando margen arriba y abajo */
+    }
+
+    .custom-table th, .custom-table td {
+      border: 2px solid black;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .custom-table th {
+      background-color: rgb(38, 38, 75);
+      color: white;
+    }
+
+    .custom-table tr:nth-child(odd) {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1 style="color: rgb(17, 16, 16); padding: 10px; text-align: center;">
+    <% if (comentarios.length > 0) { %>
+      Comentarios del Artículo
+    <% } else { %>
+      No se proporcionó un artículo para mostrar comentarios.
+    <% } %>
+  </h1>
+  <% if (comentarios.length > 0) { %>
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Autor</th>
+          <th>Mensaje</th>
+          <th>Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% comentarios.forEach(comentario => { %>
+          <tr>
+            <td><%= comentario._id %></td> <!-- Si los comentarios tienen un ID -->
+            <td><%= comentario.autor %></td>
+            <td><%= comentario.mensaje %></td>
+            <td><%= comentario.fecha %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } %>
+</body>
+</html>
