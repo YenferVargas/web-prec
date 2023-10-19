@@ -71,20 +71,7 @@
                 <input type="date" class="form-control" name="fecha" value="<%= articulo.fecha %>" required>
             </div>
 
-            <div class="form-group mb-3">
-                <label for="autor" class="form-label">Autor del Comentario:</label>
-                <input type="text" class="form-control" name="autor" value="<%= articulo.autor %>" required>
-            </div>
-
-            <div class="form-group mb-3">
-                <label for="mensaje" class="form-label">Mensaje del Comentario:</label>
-                <textarea class="form-control" name="mensaje" required><%= articulo.mensaje %></textarea>
-            </div>
-
-            <div class="form-group mb-3">
-                <label for="comentarioFecha" class="form-label">Fecha del Comentario:</label>
-                <input type="date" class="form-control" name="comentarioFecha" value="<%= articulo.comentarioFecha %>" required>
-            </div>
+          
 
             <button type="submit" class="btn btn-primary text-start mt-auto">Guardar Cambios</button>
         </form>
