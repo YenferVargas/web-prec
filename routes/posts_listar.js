@@ -8,8 +8,7 @@ router.get('/', async (req, res) =>{
   try{
     const articulosArray = await  articulos.find()
     
-    console.log(articulosArray);
-
+  
     res.render("posts_listar",{
       arrayArticulos: articulosArray
     })

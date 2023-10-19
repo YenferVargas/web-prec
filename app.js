@@ -51,10 +51,10 @@ app.get('/comment_listar/:articuloId', async (req, res) => {
 });
 
 //eliminar y editar
-const postsEditRouter = require('./controllers/posts_edit');
+const postsEditRouter = require('./controllers/posts_update');
 const postsRemoveRouter = require('./controllers/posts_remove');
 
-app.use('/posts_edit', postsEditRouter);
+app.use('/posts_update', postsEditRouter);
 app.use('/posts_remove', postsRemoveRouter);
 ///---------fin
 

@@ -2,17 +2,24 @@
 <html>
 <head>
   <title>Eliminar Artículo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-  <h1>Eliminar Artículo</h1>
-  <p>¿Estás seguro de que deseas eliminar el siguiente artículo?</p>
-  <p>Título: <%= articulo.titulo %></p>
-  <p>Descripción: <%= articulo.descripcion %></p>
-  <!-- Mostrar otros detalles del artículo que desees -->
+  <div class="container mt-5">
+    <h1>Eliminar Artículo</h1>
+    <p>¿Estás seguro de que deseas eliminar el siguiente artículo?</p>
+    <p>Título: <%= articulo.titulo %></p>
+    <p>Descripción: <%= articulo.descripcion %></p>
+    <p>Categoría: <%= articulo.categoria %></p>
+    <p>Fecha: <%= articulo.fecha %></p>
+    <p>Autor del Comentario: <%= articulo.autor %></p>
+    <p>Mensaje del Comentario: <%= articulo.mensaje %></p>
+    <p>Fecha del Comentario: <%= articulo.comentarioFecha %></p>
 
-  <form method="POST" action="/posts_remove/<%= articulo._id %>">
-    <button type="submit">Sí, Eliminar</button>
-  </form>
-  <a href="/posts_listar">Cancelar</a>
+    <form method="POST" action="/posts_remove/<%= articulo._id %>">
+      <button type="submit" class="btn btn-danger">Sí, Eliminar</button>
+    </form>
+    <a href="/posts_listar" class="btn btn-secondary mt-3">Cancelar</a>
+  </div>
 </body>
 </html>

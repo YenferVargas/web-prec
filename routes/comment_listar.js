@@ -1,21 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const Comentario = require('../models/comentario'); 
-const articulos = require('../models/articuloTecnologico'); 
+const {articulos} = require('../models/articuloTecnologico');
 // Ruta para mostrar los comentarios 
 
 
 
-router.get('/', async (req, res) => {
+router.get('/:articuloId', async (req, res) => {
+  const articuloId = req.params.articuloId;
   try {
     
-    const todos_articulos = await articulos.find({});
-    console.log(todos_articulos)
-    const comentarios = todos_articulos[0].comentarios;
-
-    console.log(comentarios);
+    const articulo = await articulos.findById(articuloId);
     res.render("comment_listar", {
-      comentarios: comentarios
+      comentarios: articulo.comentarios
     });
   } catch (error) {
     console.log(error);

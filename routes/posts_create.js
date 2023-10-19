@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
 
 
 router.post('/', async (req, res) => {
+  // Obtiene los datos del formulario
   const { titulo, descripcion, categoria, fecha, autor, mensaje, comentarioFecha } = req.body;
 
   try {
@@ -23,13 +24,14 @@ router.post('/', async (req, res) => {
       comentarios: [{ autor, mensaje, fecha: comentarioFecha }],
     });
 
- 
+    // Guarda el nuevo artículo en la base de datos
     await nuevoArticulo.save();
 
+    // Redirige a la página de listado de artículos
     res.redirect('/posts_listar');
   } catch (error) {
     console.log(error);
-    res.render('error'); 
+    res.render('error'); // Puedes personalizar la página de error
   }
 });
 
